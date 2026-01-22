@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BG Productions - Official Hub</title>
+    <style>
+        /* --- CSS STYLES --- */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap');
+
+        :root {
+            --primary-color: #00f3ff; /* Neon Cyan */
+            --secondary-color: #bc13fe; /* Neon Purple */
+            --bg-color: #050505;
+            --card-bg: rgba(20, 20, 30, 0.7);
+            --text-color: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at center, #1a1a2e 0%, #000000 100%);
+            overflow: hidden;
+        }
+
+        .bg-animation span {
+            position: absolute;
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            animation: move 25s linear infinite;
+            bottom: -150px;
+            border-radius: 50%;
+        }
+
+        @keyframes move {
+            0% { transform: translateY(0) scale(1); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--primary-color);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-shadow: 0 0 10px var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: glow 2s infinite alternate;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: #cccccc;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color); }
+            to { text-shadow: 0 0 20px var(--secondary-color), 0 0 30px var(--secondary-color); }
+        }
+
+        .btn-main {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            color: var(--bg-color);
+            background: var(--primary-color);
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            clip-path: polygon(10% 0, 100% 0, 100% 80%, 90% 100%, 0 100%, 0 20%);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-main:hover {
+            background: var(--secondary-color);
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px var(--secondary-color);
+        }
+
+        /* Apps Section */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin: 80px 0 40px;
+            color: var(--secondary-color);
+        }
+
+        .apps-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto 100px;
+        }
+
+        .app-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 300px;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            transition: 0.5s;
+            position: relative;
+            overflow: hidden;
+            opacity: 0; /* Hidden initially for animation */
+            transform: translateY(50px);
+        }
+
+        .app-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .app-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.2);
+        }
+
+        .app-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-radius: 20px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #000;
+        }
+
+        .app-card h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .app-card p {
+            font-size: 0.9rem;
+            color: #aaa;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-color);
+            z-index: -1;
+            transition: 0.5s;
+        }
+
+        .download-btn:hover::before {
+            left: 0;
+        }
+
+        .download-btn:hover {
+            color: #000;
+            box-shadow: 0 0 15px var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background: #020202;
+            padding: 20px;
+            text-align: center;
+            color: #555;
+            border-top: 1px solid #222;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .apps-container { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-animation" id="bg-anim">
+        </div>
+
+    <nav>
+        <div class="logo">BG PRODUCTIONS</div>
+        </nav>
+
+    <section class="hero">
+        <h1>FUTURE IS HERE</h1>
+        <p>අනාගත තාක්ෂණය අදම අත්විඳින්න. BG Productions මගින් නිර්මාණය කළ නවතම ඇප්ස් මෙතැනින් ලබාගන්න.</p>
+        <a href="#apps" class="btn-main">BROWSE APPS</a>
+    </section>
+
+    <section id="apps">
+        <h2 class="section-title">LATEST RELEASES</h2>
+        
+        <div class="apps-container">
+            
+            <div class="app-card">
+                <div class="app-icon">🚀</div> <h3>Super Tool V1</h3>
+                <p>ඔබගේ දෛනික වැඩ පහසු කරගන්න හදපු සුපිරිම Tool එකක්. දැන්ම Download කරගන්න.</p>
+                <a href="https://drive.google.com/YOUR_LINK_HERE" class="download-btn" target="_blank">Download</a>
+            </div>
+
+            <div class="app-card">
+                <div class="app-icon">🎮</div>
+                <h3>Cyber Game</h3>
+                <p>Action පිරුණු අලුත්ම ගේම් එක. High graphics සහ සුපිරිම Story එකක්.</p>
+                <a href="https://drive.google.com/YOUR_LINK_HERE" class="download-btn" target="_blank">Download</a>
+            </div>
+
+            <div class="app-card">
+                <div class="app-icon">🛡️</div>
+                <h3>Secure Shield</h3>
+                <p>ඔබගේ ෆෝන් එකේ ආරක්ෂාවට BG Productions වෙතින්.</p>
+                <a href="https://drive.google.com/YOUR_LINK_HERE" class="download-btn" target="_blank">Download</a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 BG Productions. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // --- JAVASCRIPT ANIMATIONS ---
+
+        // 1. Particle Background Generator
+        const bgAnim = document.getElementById('bg-anim');
+        const particleCount = 20; // Number of floating particles
+
+        for (let i = 0; i < particleCount; i++) {
+            let span = document.createElement('span');
+            let size = Math.random() * 20;
+            let left = Math.floor(Math.random() * 100);
+            let duration = Math.random() * 10 + 10;
+            let delay = Math.random() * 5;
+            
+            span.style.width = 10 + size + 'px';
+            span.style.height = 10 + size + 'px';
+            span.style.left = left + '%';
+            span.style.animationDuration = duration + 's';
+            span.style.animationDelay = delay + 's';
+            
+            bgAnim.appendChild(span);
+        }
+
+        // 2. Scroll Reveal Animation (Cards appearing as you scroll)
+        const observerOptions = {
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        const cards = document.querySelectorAll('.app-card');
+        cards.forEach((card, index) => {
+            // Add a slight delay for each card for a staggered effect
+            card.style.transitionDelay = `${index * 100}ms`;
+            observer.observe(card);
+        });
+
+    </script>
+</body>
+</html>

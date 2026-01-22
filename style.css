@@ -171,17 +171,58 @@ nav {
     box-shadow: 0 0 30px rgba(0, 243, 255, 0.2);
 }
 
+/* App Icon Container - පරණ එක මකලා මේක දාන්න */
 .app-icon {
     width: 100px;
     height: 100px;
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    background: #000; /* පසුබිම */
     border-radius: 20px;
     margin: 0 auto 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2rem;
-    color: #000;
+    position: relative;
+    overflow: hidden; /* ලයින් එක එලියට පනින එක නවත්තන්න */
+    z-index: 1;
+}
+
+/* කැරකෙන ලයින් එක (The Moving Line) */
+.app-icon::before {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    /* මෙතනින් තමයි ලයින් එකේ පාට හැදෙන්නේ - නිල් පාට */
+    background: conic-gradient(transparent, transparent, transparent, var(--primary-color));
+    animation: rotate-border 4s linear infinite; /* තත්පර 4න් කැරකෙනවා */
+    z-index: -2;
+}
+
+/* මැද කොටස කලු පාටින් වහනවා (Masking) - එතකොට තමයි ලයින් එක විතරක් පේන්නේ */
+.app-icon::after {
+    content: '';
+    position: absolute;
+    inset: 3px; /* මේකෙන් තමයි ලයින් එකේ මහත තීරණය කරන්නේ */
+    background: var(--card-bg); /* කාඩ් එකේ පාටම මැදට */
+    border-radius: 18px;
+    z-index: -1;
+}
+
+/* පින්තූරය රාමුවට ගානට කැපී පෙනෙන්න */
+.app-icon img {
+    z-index: 2;
+    position: relative;
+    width: 100%;        /* කොටුවේ සම්පූර්ණ පළල ගන්න */
+    height: 100%;       /* කොටුවේ සම්පූර්ණ උස ගන්න */
+    object-fit: cover;  /* පින්තූරය ඇදෙන්නේ නැතිව රාමුවට ගානට ක්‍රොප් වෙන්න */
+    border-radius: 18px; /* අයිකන් එකේ මුලු රවුම් කරන්න */
+    padding: 6px;       /* වටේ කැරකෙන ලයින් එක වැහෙන්නේ නැතිව පේන්න පොඩි ඉඩක් */
+}
+
+/* කැරකෙන ඇනිමේෂන් එක */
+@keyframes rotate-border {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .app-card h3 {
@@ -231,6 +272,43 @@ nav {
 .download-btn:hover {
     color: #000;
     box-shadow: 0 0 15px var(--primary-color);
+}
+
+/* අකුරු ඇතුලේ පාට වම් පැත්තේ ඉඳන් දකුණට ගලාගෙන යන එක */
+.bg-gradient-text {
+    font-size: 2rem;       /* අකුරු වල සයිස් එක */
+    font-weight: 800;      /* අකුරු මහත් කරන්න */
+    display: inline-block;
+    margin-top: 10px;
+    
+    /* පාට මිශ්‍රණය (නිල් - සුදු - නිල්) */
+    background: linear-gradient(
+        90deg, 
+        var(--primary-color) 0%, 
+        #ffffff 50%, 
+        var(--primary-color) 100%
+    );
+    
+    background-size: 200% auto; /* පසුබිම දෙගුණයක් ලොකු කරනවා */
+    
+    /* අකුරු ඇතුලට විතරක් පාට වැටෙන්න */
+    color: transparent; /* අකුරු වල පාට නැති කරනවා */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* ඇනිමේෂන් එක */
+    animation: shine-flow 3s linear infinite;
+}
+
+/* වම් පැත්තේ ඉඳන් දකුණට යන ඇනිමේෂන් එක */
+@keyframes shine-flow {
+    0% {
+        background-position: 200% center;
+    }
+    100% {
+        background-position: 0% center;
+    }
 }
 
 /* Footer */

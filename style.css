@@ -104,8 +104,14 @@ nav {
 }
 
 @keyframes glow {
-    from { text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color); }
-    to { text-shadow: 0 0 20px var(--secondary-color), 0 0 30px var(--secondary-color); }
+    from { 
+        /* එළිය ගොඩක් අඩුයි - ඇස් වලට අමාරු නෑ */
+        text-shadow: 0 0 5px var(--primary-color); 
+    }
+    to { 
+        /* උපරිම එළියත් ගොඩක් සැර නෑ */
+        text-shadow: 0 0 10px var(--secondary-color), 0 0 20px var(--secondary-color); 
+    }
 }
 
 .btn-main {
@@ -321,6 +327,20 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .hero h1 { font-size: 2.5rem; }
-    .apps-container { flex-direction: column; align-items: center; }
+    .hero h1 {
+        /* "rem" වෙනුවට "vw" දැම්මාම Screen එකේ සයිස් එකට අනුව අකුරු ඉබේම පොඩි වෙනවා */
+        font-size: 8vw; 
+        line-height: 1.2;
+        padding: 0 10px; /* වම් සහ දකුණු පැත්තෙන් පොඩි ඉඩක් */
+    }
+
+    .hero p {
+        font-size: 1rem; /* පහළ විස්තරයේ අකුරුත් පොඩ්ඩක් පොඩි කරමු */
+        padding: 0 15px;
+    }
+
+    .apps-container {
+        flex-direction: column;
+        align-items: center;
+    }
 }

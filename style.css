@@ -34,15 +34,15 @@ body {
     overflow: hidden;
 }
 
+/* Animated Background (Bubbles) */
 .bg-animation span {
     position: absolute;
     display: block;
-    width: 20px;
-    height: 20px;
-    background: rgba(255, 255, 255, 0.1);
+    /* width, height එන්නේ JS එකෙන් */
+    background: rgba(255, 255, 255, 0.1); /* සුදු පාට බොඳ බෝල */
     animation: move 25s linear infinite;
     bottom: -150px;
-    border-radius: 50%;
+    border-radius: 50%; /* රවුම් හැඩය */
 }
 
 @keyframes move {

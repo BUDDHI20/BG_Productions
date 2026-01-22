@@ -1,9 +1,9 @@
-// 1. Particle Background Generator
+// 1. Particle Background Generator (Bubbles Version)
 const bgAnim = document.getElementById('bg-anim');
-const particleCount = 20;
+const particleCount = 20; // බෝල ගණන
 
 for (let i = 0; i < particleCount; i++) {
-    let span = document.createElement('span');
+    let span = document.createElement('span'); // img වෙනුවට span හදනවා
     let size = Math.random() * 20;
     let left = Math.floor(Math.random() * 100);
     let duration = Math.random() * 10 + 10;

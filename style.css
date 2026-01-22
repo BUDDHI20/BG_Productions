@@ -34,15 +34,15 @@ body {
     overflow: hidden;
 }
 
-.bg-animation span {
+/* මෙය .bg-animation span වෙනුවට දාන්න */
+.bg-animation img {
     position: absolute;
     display: block;
-    width: 20px;
-    height: 20px;
-    background: rgba(255, 255, 255, 0.1);
+    /* width, height දැන් එන්නේ JS එකෙන් */
     animation: move 25s linear infinite;
     bottom: -150px;
-    border-radius: 50%;
+    object-fit: contain; /* ලෝගෝ එක ඇදෙන්නේ නැතුව තියන්න */
+    z-index: -1; /* අකුරු වලට යටින් යන්න */
 }
 
 @keyframes move {

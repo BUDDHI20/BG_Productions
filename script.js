@@ -1,21 +1,26 @@
-// 1. Particle Background Generator
+// 1. Particle Background Generator (Logo Version)
 const bgAnim = document.getElementById('bg-anim');
-const particleCount = 20;
+const particleCount = 15; // ලෝගෝ නිසා ගොඩක් දාන්න එපා, 15ක් 20ක් ඇති
 
 for (let i = 0; i < particleCount; i++) {
-    let span = document.createElement('span');
-    let size = Math.random() * 20;
-    let left = Math.floor(Math.random() * 100);
-    let duration = Math.random() * 10 + 10;
+    let img = document.createElement('img'); // span වෙනුවට img හදනවා
+    img.src = 'Logos/BGP.png'; // ඔයාගේ ලෝගෝ එකේ පාත් එක මෙතනට දාන්න
+    
+    let size = Math.random() * 30 + 20; // ලෝගෝ එකේ සයිස් එක (20px - 50px අතර)
+    let left = Math.floor(Math.random() * 90); // Screen එකේ වම් පැත්තේ ඉඳන් පිහිටීම
+    let duration = Math.random() * 15 + 10; // උඩට යන්න යන වෙලාව
     let delay = Math.random() * 5;
     
-    span.style.width = 10 + size + 'px';
-    span.style.height = 10 + size + 'px';
-    span.style.left = left + '%';
-    span.style.animationDuration = duration + 's';
-    span.style.animationDelay = delay + 's';
+    img.style.width = size + 'px';
+    img.style.height = size + 'px'; // උසයි පළලයි සමානව
+    img.style.left = left + '%';
+    img.style.animationDuration = duration + 's';
+    img.style.animationDelay = delay + 's';
     
-    bgAnim.appendChild(span);
+    // අමතරව: ලෝගෝ එක ටිකක් බොඳ වෙලා පේන්න (නැත්නම් අකුරු කියවන්න අමාරුයි)
+    img.style.opacity = Math.random() * 0.3 + 0.1; 
+    
+    bgAnim.appendChild(img);
 }
 
 // 2. Scroll Reveal Animation

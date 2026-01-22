@@ -58,10 +58,9 @@ h1, h2, h3 {
     letter-spacing: 2px;
 }
 
-/* Navigation */
 nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* මෙතන space-between තිබුණ එක center කරන්න */
     align-items: center;
     padding: 20px 50px;
     background: rgba(0, 0, 0, 0.8);
@@ -326,19 +325,28 @@ footer {
     border-top: 1px solid #222;
 }
 
+/* 1. ඩෙස්ක්ටොප් එකට අදාළ ගැප් එක (ලොකු ගැප් එකක්) */
+.smart-text {
+    word-spacing: 50px; /* වචන දෙක මැද පරතරය මෙතනින් වෙනස් කරන්න */
+    white-space: nowrap; /* වචන දෙක කඩන්නේ නැතුව එක පේළියේ තියන්න */
+}
+
+/* 2. ෆෝන් එකට අදාළ සැකසුම් (Mobile View) */
 @media (max-width: 768px) {
     .hero h1 {
-        /* "rem" වෙනුවට "vw" දැම්මාම Screen එකේ සයිස් එකට අනුව අකුරු ඉබේම පොඩි වෙනවා */
-        font-size: 8vw; 
+        font-size: 10vw; /* තිරයේ ප්‍රමාණයට අනුව අකුරු ඉබේම පොඩි වෙන්න */
         line-height: 1.2;
-        padding: 0 10px; /* වම් සහ දකුණු පැත්තෙන් පොඩි ඉඩක් */
+        padding: 0 5px;
+        width: 100%; /* සම්පූර්ණ ඉඩ ගන්න */
+        overflow: hidden; /* එළියට පනින ඒවා හංගන්න */
     }
 
-    .hero p {
-        font-size: 1rem; /* පහළ විස්තරයේ අකුරුත් පොඩ්ඩක් පොඩි කරමු */
-        padding: 0 15px;
+    .smart-text {
+        word-spacing: 15px; /* ෆෝන් එකේදි අර ලොකු ගැප් එක පොඩි කරනවා */
+        white-space: normal; /* ඉඩ මදි නම් වචන දෙක පේළි දෙකකට කැඩෙන්න දෙනවා */
+        display: block; /* අවශ්‍ය නම් පේළි දෙකකට එන්න ඉඩ දෙනවා */
     }
-
+    
     .apps-container {
         flex-direction: column;
         align-items: center;

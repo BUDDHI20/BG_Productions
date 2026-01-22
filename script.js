@@ -36,3 +36,8 @@ cards.forEach((card, index) => {
     card.style.transitionDelay = `${index * 100}ms`;
     observer.observe(card);
 });
+
+// වෙබ් පිටුවේ Right Click වැඩ නොකරන ලෙස සැකසීම
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});

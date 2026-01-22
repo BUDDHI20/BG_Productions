@@ -357,3 +357,23 @@ footer {
 #apps {
     scroll-margin-top: 120px; /* 100px මදි නම් 120px හෝ 140px කරලා බලන්න */
 }
+
+/* --- COPY PROTECTION --- */
+
+body {
+    /* අකුරු Select/Highlight වෙන එක නවත්වන්න */
+    user-select: none;
+    -webkit-user-select: none; /* Chrome / Safari සඳහා */
+    -moz-user-select: none;    /* Firefox සඳහා */
+    -ms-user-select: none;     /* Edge සඳහා */
+}
+
+img {
+    /* පින්තූර Drag වෙන එක (ඇදගෙන යන එක) නවත්වන්න */
+    -webkit-user-drag: none;
+    
+    
+    /* පින්තූර උඩ Right Click කරන එක සහ Click කරන එක නවත්වන්න */
+    /* (මෙය දැම්මාම පින්තූර Save කරන්නත් අමාරු වෙනවා) */
+    pointer-events: none; 
+}

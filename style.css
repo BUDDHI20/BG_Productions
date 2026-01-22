@@ -327,7 +327,7 @@ footer {
 
 /* 1. ඩෙස්ක්ටොප් එකට අදාළ ගැප් එක (ලොකු ගැප් එකක්) */
 .smart-text {
-    word-spacing: 50px; /* වචන දෙක මැද පරතරය මෙතනින් වෙනස් කරන්න */
+    word-spacing: 5px; /* වචන දෙක මැද පරතරය මෙතනින් වෙනස් කරන්න */
     white-space: nowrap; /* වචන දෙක කඩන්නේ නැතුව එක පේළියේ තියන්න */
 }
 
@@ -351,4 +351,10 @@ footer {
         flex-direction: column;
         align-items: center;
     }
+}
+
+/* ලින්ක් එක ක්ලික් කළාම උඩින් ඉඩක් තියන්න */
+html {
+    scroll-behavior: smooth; /* දැනටමත් තියෙනවා නම් කමක් නෑ */
+    scroll-padding-top: 100px; /* මෙනු බාර් එකේ උසට සරිලන ඉඩක් (100px වගේ) */
 }

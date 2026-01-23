@@ -1,9 +1,9 @@
-// 1. Particle Background Generator (Bubbles Version)
+
 const bgAnim = document.getElementById('bg-anim');
-const particleCount = 20; // බෝල ගණන
+const particleCount = 20; 
 
 for (let i = 0; i < particleCount; i++) {
-    let span = document.createElement('span'); // img වෙනුවට span හදනවා
+    let span = document.createElement('span'); 
     let size = Math.random() * 20;
     let left = Math.floor(Math.random() * 100);
     let duration = Math.random() * 10 + 10;
@@ -18,7 +18,7 @@ for (let i = 0; i < particleCount; i++) {
     bgAnim.appendChild(span);
 }
 
-// 2. Scroll Reveal Animation
+
 const observerOptions = {
     threshold: 0.2
 };
@@ -37,7 +37,13 @@ cards.forEach((card, index) => {
     observer.observe(card);
 });
 
-// වෙබ් පිටුවේ Right Click වැඩ නොකරන ලෙස සැකසීම
+
 document.addEventListener('contextmenu', function(e) {
     e.preventDefault();
 });
+
+// Popup එක වහන function එක
+function closePopup() {
+    const popup = document.getElementById('dev-popup');
+    popup.style.display = 'none';
+}

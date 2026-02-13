@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connection Lost | BG Productions</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .offline-container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: #000;
+        }
+        .offline-icon {
+            font-size: 5rem;
+            color: #ff0055; 
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px #ff0055;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <div class="offline-icon">⚠️</div>
+        <h1 style="color: #ff0055; font-family: 'Orbitron', sans-serif;">CONNECTION LOST</h1>
+        <p style="color: #ccc; margin: 20px 0;">You are currently offline. Check your internet connection.</p>
+        <button onclick="window.location.reload()" class="btn-main">RETRY CONNECTION</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://buddhi20.github.io/BG_Productions/sitemap.xml

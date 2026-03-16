@@ -377,37 +377,37 @@ img {
     pointer-events: none; 
 }
 
-/* Popup එකේ පසුබිම (කළු පාට බොඳ වෙලා පේන කොටස) */
+
 .popup-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.85); /* පසුබිම අඳුරු කරන්න */
+    background: rgba(0, 0, 0, 0.85); 
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 10000; /* හැමදේටම වඩා උඩින් පෙන්නන්න */
-    backdrop-filter: blur(5px); /* පසුබිම බොඳ කරන්න */
+    z-index: 10000; 
+    backdrop-filter: blur(5px); 
 }
 
-/* මැද තියෙන Box එක */
+
 .popup-content {
     background: rgba(20, 20, 20, 0.9);
-    border: 2px solid var(--primary-color); /* ඔයාගේ නිල් පාට */
+    border: 2px solid var(--primary-color); 
     padding: 30px;
     border-radius: 15px;
     text-align: center;
     width: 90%;
     max-width: 400px;
-    box-shadow: 0 0 20px var(--primary-color); /* නිල් පාට එළියක් */
+    box-shadow: 0 0 20px var(--primary-color); 
     animation: popupFadeIn 0.5s ease;
 }
 
-/* අකුරු වල පාට */
+
 .popup-content h2 {
-    color: #ffcc00; /* කහ පාටින් ATTENTION */
+    color: #ffcc00; 
     margin-bottom: 15px;
     font-size: 24px;
     letter-spacing: 2px;
@@ -419,7 +419,7 @@ img {
     font-size: 16px;
 }
 
-/* OK බොත්තම */
+
 .popup-content button {
     background: var(--primary-color);
     color: #000;
@@ -437,7 +437,7 @@ img {
     box-shadow: 0 0 15px #fff;
 }
 
-/* Popup එක එන විදිය (Animation) */
+
 @keyframes popupFadeIn {
     from { transform: scale(0.8); opacity: 0; }
     to { transform: scale(1); opacity: 1; }

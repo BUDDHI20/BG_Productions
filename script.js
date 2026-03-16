@@ -42,7 +42,7 @@ document.addEventListener('contextmenu', function(e) {
     e.preventDefault();
 });
 
-// Popup එක වහන function එක
+
 function closePopup() {
     const popup = document.getElementById('dev-popup');
     popup.style.display = 'none';

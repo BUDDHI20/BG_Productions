@@ -1,118 +1,55 @@
 <!DOCTYPE html>
-<html lang="si">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | BG Productions</title>
     
-    <title>BG Productions | BG Productions Softwares</title>
     <link rel="icon" type="image/png" href="Logos/BGP.png">
-    <link rel="apple-touch-icon" href="Logos/BGP.png">
-
-    <meta name="description" content="Custom Software Solutions Designed and Developed by BG Productions.">
-
-    <meta name="keywords" content="BG Productions, BG Productions Software, BG Softwares, Buddhi, BG Apps, BG Productions Software Sri Lanka,BG">
-
-    <meta name="author" content="BG Productions">
-
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://buddhi20.github.io/BG_Productions/">
-    <meta property="og:title" content="BG Productions">
-    <meta property="og:site_name" content="BG Productions">
-    <meta property="og:description" content="Custom Software Solutions Designed and Developed by BG Productions.">
-    
-    <meta property="og:image" content="https://buddhi20.github.io/BG_Productions/Logos/BGP.png">
-
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="BG Productions">
-    <meta name="twitter:description" content="Custom Software Solutions Designed and Developed by BG Productions.">
-    <meta name="twitter:image" content="https://buddhi20.github.io/BG_Productions/Logos/BGP.png">
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "BG Productions",
-      "url": "https://buddhi20.github.io/BG_Productions/",
-      "alternateName": ["BG Productions Softwares", "BGP"],
-      "image": "https://buddhi20.github.io/BG_Productions/Logos/BGP.png"
-    }
-    </script>
-
     <link rel="stylesheet" href="style.css">
-    <link rel="manifest" href="manifest.json">
 </head>
 <body>
-    <div id="cursor-light"></div>
-
 
     <div class="bg-animation" id="bg-anim"></div>
 
-    <nav>
-    <div class="logo">
-        <img src="Logos/BGP.png" alt="Logo" style="height: 40px; margin-right: 3px; vertical-align: middle;">
-        PRODUCTIONS
-    </div> 
+    <nav class="top-nav">
+        <div class="logo-container">
+            <img src="Logos/BGP.png" alt="BG Logo" class="nav-logo-img">
+            <span class="nav-logo-text">PRODUCTIONS</span>
+        </div>
+
+        <div class="nav-center">
+            <a href="home.html" class="nav-card">HOME</a>
+            <a href="index.html#apps" class="nav-card">BROWSE SOFTWARES</a>
+        </div>
+
+        <div class="auth-buttons">
+            <button class="btn-auth">LOGIN</button>
+            <button class="btn-auth signup">SIGN UP</button>
+        </div>
     </nav>
 
-    <section class="hero">
-        <h1>
-            Simple Ideas.<br>
-            <span class="smart-text">Smart Softwares.</span>
-        </h1>
-        <p>
-             Custom Software Solutions<br> Designed and Developed by<br>
-             <span class="bg-gradient-text">BG Productions</span>
-        </p>
-        <a href="#apps" class="btn-main">BROWSE SOFTWARES</a>
-    </section>
-
-    <section id="apps">
-        <h2 class="section-title">LATEST RELEASES</h2>
-        
-        <div class="apps-container">
-            
-            <div class="app-card">
-                <div class="app-icon">
-                    <img src="BG Compressor/BG Compressor.ico" alt="BG Compressor" style="width: 85px; height: 85px;">
-                </div>
-                <h3>BG Compressor</h3>
-                <p>“Reduce Video size without losing quality.”</p>
-                <a href="https://drive.google.com/uc?export=download&id=1qXq_gNfM8Yr3SMXCpVzhOSJtSdoBCwIb" class="download-btn" target="_blank">Download</a>
+    <header class="slider-section">
+        <div class="slide active">
+            <div class="slide-content">
+                <h2>Now Developing <span class="highlight">Custom POS Systems</span></h2>
+                <p><strong>What is a POS System?</strong> A Point of Sale (POS) system is the digital heart of your business. It is where customers make payments, but it also effortlessly manages your daily sales, tracks inventory in real-time, and generates accurate bills. It is the perfect, secure solution to modernize retail shops, fashion outlets, and supermarkets.</p>
             </div>
-
-            <div class="app-card">
-                <div class="app-icon">
-                    <img src="BG Player/bgplayer.png" alt="BG Player" style="width: 85px; height: 85px;">
-                </div>
-                <h3>BG Player</h3>
-                <p>COMING SOON</p>
-            </div>
-
-            <div class="app-card">
-                <div class="app-icon"></div>
-                <h3>COMING SOON</h3>
-                <p>Please waiting for the new software</p>
-            </div>
-
         </div>
-    </section>
 
-    <footer>
-        <p>&copy; 2026 BG Productions. All Rights Reserved.</p>
-    </footer>
-
-    <div id="dev-popup" class="popup-overlay">
-        <div class="popup-content">
-            <h2>⚠️ ATTENTION</h2>
-            <p>This website is under development.<br> Some features are coming soon,<br>but it’s ready to use.</p>
-            <button onclick="closePopup()">OK</button>
+        <div class="slide">
+            <div class="slide-content">
+                <h2>We Develop <span class="highlight">Custom Softwares</span> Your Own</h2>
+                <p>Simple Ideas. Smart Softwares. Whether you need a unique desktop application, a secure file management system, or a complete digital transformation for your business, BG Productions brings your vision to life with cutting-edge technology.</p>
+            </div>
         </div>
-    </div>
+
+        <div class="slider-dots">
+            <span class="dot active" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+        </div>
+    </header>
 
     <script src="script.js"></script>
-
-
-
-
 </body>
 </html>

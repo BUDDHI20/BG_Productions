@@ -47,3 +47,46 @@ function closePopup() {
     const popup = document.getElementById('dev-popup');
     popup.style.display = 'none';
 }
+
+
+// --- Slideshow Logic (Home Page) ---
+let slideIndex = 0;
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+let slideInterval;
+
+function showSlides(index) {
+    // වෙනත් පිටුවලදී (home.html නොවන) මේක වැඩ කරලා error එන එක නවත්වන්න
+    if (slides.length === 0) return;
+
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    
+    slideIndex = index;
+    if (slideIndex >= slides.length) { slideIndex = 0; }
+    if (slideIndex < 0) { slideIndex = slides.length - 1; }
+    
+    slides[slideIndex].classList.add('active');
+    dots[slideIndex].classList.add('active');
+}
+
+function nextSlide() {
+    showSlides(slideIndex + 1);
+}
+
+function currentSlide(index) {
+    clearInterval(slideInterval);
+    showSlides(index);
+    startSlideShow();
+}
+
+function startSlideShow() {
+    if (slides.length > 0) {
+        // තත්පර 5න් 5ට Slide එක මාරු වීම (5000ms = 5s)
+        slideInterval = setInterval(nextSlide, 10000); 
+    }
+}
+
+// පිටුව Load වෙද්දිම Slideshow එක පටන් ගන්න
+showSlides(0);
+startSlideShow();

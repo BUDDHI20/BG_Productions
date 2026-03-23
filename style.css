@@ -58,17 +58,224 @@ h1, h2, h3 {
     letter-spacing: 2px;
 }
 
-nav {
+/* =========================================
+   HOME PAGE STYLES (NAV + SLIDER)
+   ========================================= */
+
+/* --- Home Page Navigation --- */
+.top-nav {
     display: flex;
-    justify-content: center; 
+    justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
-    background: rgba(0, 0, 0, 0.8);
+    padding: 10px 40px;
+    background: rgba(5, 5, 5, 0.85);
     backdrop-filter: blur(10px);
     position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     z-index: 1000;
-    border-bottom: 1px solid var(--primary-color);
+    border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-logo-img {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-logo-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px var(--primary-color);
+    letter-spacing: 2px;
+}
+
+.nav-center {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 25px;
+    background: rgba(20, 20, 30, 0.5);
+    border: 1px solid rgba(0, 243, 255, 0.2);
+    border-radius: 8px;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-card::before {
+    content: '';
+    position: absolute;
+    top: 0; 
+    left: -100%;
+    width: 100%; 
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.3), transparent);
+    transition: 0.5s;
+}
+
+.nav-card:hover::before {
+    left: 100%;
+}
+
+.nav-card:hover {
+    background: rgba(0, 243, 255, 0.1);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-auth {
+    padding: 8px 20px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-auth:hover {
+    background: var(--primary-color);
+    color: #000;
+    box-shadow: 0 0 15px var(--primary-color);
+}
+
+.btn-auth.signup {
+    background: var(--primary-color);
+    color: #000;
+}
+
+.btn-auth.signup:hover {
+    background: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: #fff;
+    box-shadow: 0 0 15px var(--secondary-color);
+}
+
+/* --- Slideshow Section --- */
+.slider-section {
+    height: 100vh; /* Screen එක පුරාම පෙන්නන්න */
+    position: relative;
+    overflow: hidden;
+    display: flex; /* අකුරු මැදට ගේන්න */
+    justify-content: center;
+    align-items: center;
+    background: rgba(10, 10, 15, 0.5);
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 10%;
+}
+
+.slide::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7); /* කලු පාට ශේඩ් එකක් */
+    z-index: 1;
+}
+
+/* Background Images */
+.slide:nth-child(1) {
+    background: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80') no-repeat center center/cover;
+}
+
+.slide:nth-child(2) {
+    background: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80') no-repeat center center/cover;
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 10;
+}
+
+.slide-content {
+    position: relative;
+    z-index: 2;
+}
+
+.slide-content h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(0, 243, 255, 0.5);
+    text-transform: uppercase;
+}
+
+.slide-content p {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.2rem;
+    color: #ddd;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.highlight {
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.slider-dots {
+    position: absolute;
+    bottom: 30px;
+    display: flex;
+    gap: 10px;
+    z-index: 20;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dot.active {
+    background: var(--primary-color);
+    box-shadow: 0 0 10px var(--primary-color);
 }
 
 .logo {

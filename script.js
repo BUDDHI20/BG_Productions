@@ -87,6 +87,12 @@ function startSlideShow() {
     }
 }
 
+// --- Mobile Menu Toggle ---
+function toggleMobileMenu() {
+    const menu = document.getElementById('navLinks');
+    menu.classList.toggle('show-menu');
+}
+
 // පිටුව Load වෙද්දිම Slideshow එක පටන් ගන්න
 showSlides(0);
 startSlideShow();

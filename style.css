@@ -145,6 +145,16 @@ h1, h2, h3 {
     transform: translateY(-3px);
 }
 
+/* දැනට සිටින පිටුවට අදාළ Tab එක (Active State) */
+.nav-card.active {
+    background: rgba(0, 243, 255, 0.15);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.4);
+    color: var(--primary-color);
+    pointer-events: none; /* ආයෙත් Click කරන්න බැරි වෙන්න හදනවා */
+    cursor: default; /* Mouse pointer එක අතක් වෙනුවට සාමාන්‍ය ඊතලයක් වෙනවා */
+}
+
 .auth-buttons {
     display: flex;
     gap: 15px;
@@ -523,6 +533,11 @@ h1, h2, h3 {
     }
 }
 
+/* Slider එක ඇතුලේ තියෙන බොත්තම */
+.slide-btn {
+    display: inline-block;
+    margin-top: 30px; /* අකුරු වලින් ටිකක් පහළට කරලා පෙන්වන්න */
+}
 
 footer {
     background: #020202;

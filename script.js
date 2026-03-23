@@ -93,6 +93,45 @@ function toggleMobileMenu() {
     menu.classList.toggle('show-menu');
 }
 
+
+let navTimer;
+const topNav = document.querySelector('.top-nav');
+
+// Nav bar එක හංගන function එක
+function hideNav() {
+    topNav.classList.add('hidden-nav');
+}
+
+// මවුස් එක හොල්ලද්දි ආයේ පෙන්වන function එක
+function resetNavTimer() {
+    // Nav bar එක පෙන්වන්න
+    topNav.classList.remove('hidden-nav');
+    
+    // පරණ ටයිමර් එක cancel කරනවා
+    clearTimeout(navTimer);
+    
+    // තත්පර 3ක් (3000ms) මවුස් එක හෙල්ලුවේ නැත්නම් hideNav function එක රන් කරනවා
+    navTimer = setTimeout(hideNav, 3000); 
+}
+
+// මවුස් එක මුළු screen එකේම කොහේ හෙල්ලුවත් මේක වැඩ කරනවා
+window.addEventListener('mousemove', resetNavTimer);
+
+// Scroll කරද්දිත් nav bar එක පේන්න ඕනේ නම් මේකත් දාන්න
+window.addEventListener('scroll', resetNavTimer);
+
+// --- මේ ටික අලුතින් එකතු කරන්න (ෆෝන් එකේ ටච් එකට) ---
+window.addEventListener('touchstart', resetNavTimer); // ස්ක්‍රීන් එක ටච් කරද්දි
+window.addEventListener('touchmove', resetNavTimer);  // ස්ක්‍රීන් එකේ අත අදිද්දි
+window.addEventListener('touchend', resetNavTimer);   // ස්ක්‍රීන් එකෙන් අත ගනිද්දි
+
+// Nav bar එක උඩට මවුස් එක ගෙනිච්චම ඒක hide වෙන්නෙ නැති වෙන්න
+topNav.addEventListener('mouseenter', () => clearTimeout(navTimer));
+topNav.addEventListener('mouseleave', resetNavTimer);
+
+// මුලින්ම website එක ලෝඩ් වෙද්දි timer එක පටන් ගන්නවා
+resetNavTimer();
+
 // පිටුව Load වෙද්දිම Slideshow එක පටන් ගන්න
 showSlides(0);
 startSlideShow();

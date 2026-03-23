@@ -657,69 +657,85 @@ img {
     gap: 20px;
 }
 
-/* --- Optimized Mobile View --- */
-@media screen and (max-width: 768px) {
-    
-    /* මුළු Screen එකේම හරහට scroll වෙන එක නවත්තන්න */
-    body, html {
-        overflow-x: hidden;
-        width: 100%;
+/* =========================================
+   MOBILE RESPONSIVE FIX (PHONE VIEW)
+   ========================================= */
+@media (max-width: 768px) {
+    /* Nav Bar එක Logo එකයි Icon එකයි විතරක් පෙනෙන්න හැදීම */
+    .top-nav {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        padding: 15px 20px !important;
     }
 
-    /* Main Container එක */
-    .hero, .slider-section {
-        padding: 100px 20px 60px 20px !important;
-        text-align: center;
-        min-height: auto;
+    .menu-icon {
+        display: block !important; /* Phone එකේදී ඉරි කෑලි 3 පෙන්වයි */
     }
 
-    /* Simple Ideas. Smart Softwares. අකුරු ටික */
-    .hero h1, .slide-content h2 {
-        font-size: 2.2rem !important; /* අකුරු පොඩි කරා කැපෙන්නෙ නැති වෙන්න */
-        line-height: 1.3 !important;
-        word-wrap: break-word;
-        margin-bottom: 15px;
-    }
-
-    /* Description අකුරු */
-    .hero p, .slide-content p {
-        font-size: 0.95rem !important;
-        width: 100% !important;
-        max-width: 100%;
-        margin: 0 auto 25px auto;
-    }
-
-    /* Button එක Dots වල වදින්නේ නැති වෙන්න උඩට ගැනීම */
-    .btn-main, .slide-btn {
-        display: inline-block;
-        margin-bottom: 50px !important; 
-        padding: 12px 30px !important;
-        width: auto;
-    }
-
-    /* Software Cards ටික එක යට එක ලස්සනට එන්න */
-    .apps-container {
-        display: block !important; /* Flex එක අවුල් නම් මේකෙන් හරි යනවා */
-        padding: 20px;
-    }
-
-    .app-card {
-        width: 90% !important;
-        margin: 20px auto !important; /* කාඩ් අතර පරතරය */
-        display: block;
-    }
-
-    /* Slider එකේ Dots පල්ලෙහාටම කිරීම */
-    .slider-dots {
-        bottom: 10px !important;
-    }
-
-    /* Navigation Menu එක (Mobile menu එක open කරාම පේන විදිහ) */
+    /* Menu එක hide කරලා තිබීම (Phone එකේදී) */
     .nav-links-container {
+        display: none; /* මුලින්ම පේන්නේ නෑ */
+        flex-direction: column !important;
+        position: absolute;
+        top: 75px; /* Nav bar එකෙන් පල්ලෙහාට */
+        left: 0;
         width: 100%;
-        background: rgba(0, 0, 0, 0.95);
+        background: rgba(10, 10, 15, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 20px 0;
+        border-bottom: 2px solid var(--primary-color);
+        z-index: 999;
+    }
+
+    /* Menu එක open වුණාම (JS එකෙන්) පෙනෙන්න හැදීම */
+    .nav-links-container.show-menu {
+        display: flex !important;
+    }
+
+    .nav-center {
+        flex-direction: column !important;
+        width: 90% !important;
+        gap: 15px !important;
+    }
+
+    .auth-buttons {
+        flex-direction: column !important;
+        width: 90% !important;
+        margin-top: 15px !important;
+    }
+
+    .nav-card, .btn-auth {
+        width: 100% !important;
+        text-align: center !important;
+        padding: 12px !important;
+    }
+
+    /* --- CONTACT US Button එක පෙනෙන්න හැදීම --- */
+    .slider-section {
+        height: auto !important;
+        min-height: 85vh !important; 
+        margin-top: 70px !important;
+        padding: 40px 0 60px 0 !important; /* Button එකට ඉඩ දෙනවා */
+    }
+
+    .slide-content h2 {
+        font-size: 1.8rem !important;
+        line-height: 1.3 !important;
+    }
+
+    .slide-content p {
+        font-size: 0.95rem !important;
+    }
+
+    .slide-btn {
+        display: inline-block !important; /* Button එක force කරලා පෙන්වනවා */
+        margin-top: 25px !important;
+        padding: 12px 25px !important;
+        font-size: 1rem !important;
+        z-index: 50 !important;
     }
 }
+
 
 /* Main Heading එකට (We Develop... / Now Developing...) */
 .slide-content h2 {

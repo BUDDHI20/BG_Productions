@@ -88,10 +88,36 @@ function startSlideShow() {
 }
 
 // --- Mobile Menu Toggle ---
+// --- Mobile Menu Toggle ---
 function toggleMobileMenu() {
     const menu = document.getElementById('navLinks');
+    const icon = document.querySelector('.menu-icon');
+    
     menu.classList.toggle('show-menu');
+    
+    // Menu එක Open නම් X අයිකන් එක පෙන්වන්න, නැත්නම් Hamburger අයිකන් එක පෙන්වන්න
+    if (menu.classList.contains('show-menu')) {
+        icon.innerHTML = '&#10006;'; // X Icon (Close)
+        icon.style.color = '#ff4757'; // Close වෙද්දි රතු පාට වෙන්න
+    } else {
+        icon.innerHTML = '&#9776;'; // Hamburger Icon
+        icon.style.color = 'var(--primary-color)'; // ආයෙත් නිල් පාට වෙන්න
+    }
 }
+
+// Menu එකේ Link එකක් Click කරාම Menu එක Auto Close වෙන්න
+document.querySelectorAll('.nav-card').forEach(link => {
+    link.addEventListener('click', () => {
+        const menu = document.getElementById('navLinks');
+        const icon = document.querySelector('.menu-icon');
+        
+        if(menu.classList.contains('show-menu')) {
+            menu.classList.remove('show-menu');
+            icon.innerHTML = '&#9776;';
+            icon.style.color = 'var(--primary-color)';
+        }
+    });
+});
 
 
 let navTimer;

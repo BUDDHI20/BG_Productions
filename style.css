@@ -658,128 +658,151 @@ img {
 }
 
 /* =========================================
-   MOBILE RESPONSIVE FIX (PHONE VIEW)
+   NEW MOBILE RESPONSIVE UI (APP-LIKE FEEL)
    ========================================= */
 @media (max-width: 768px) {
-    /* Nav Bar එක Logo එකයි Icon එකයි විතරක් පෙනෙන්න හැදීම */
+    /* Top Nav Fixes */
     .top-nav {
-        flex-direction: row !important;
-        justify-content: space-between !important;
         padding: 15px 20px !important;
+        background: rgba(5, 5, 10, 0.95) !important;
+        border-bottom: 1px solid rgba(0, 243, 255, 0.3);
+    }
+
+    .nav-logo-text {
+        font-size: 1.3rem; /* Logo එක ෆෝන් එකට ගැලපෙන සයිස් කිරීම */
+    }
+
+    .nav-logo-img {
+        height: 35px;
     }
 
     .menu-icon {
-        display: block !important; /* Phone එකේදී ඉරි කෑලි 3 පෙන්වයි */
+        display: block !important; 
+        z-index: 1002; /* Menu එකට උඩින් තියන්න */
+        transition: 0.3s ease;
     }
 
-    /* Menu එක hide කරලා තිබීම (Phone එකේදී) */
+    /* Modern Full-Screen Slide Menu */
     .nav-links-container {
-        display: none; /* මුලින්ම පේන්නේ නෑ */
-        flex-direction: column !important;
-        position: absolute;
-        top: 75px; /* Nav bar එකෙන් පල්ලෙහාට */
-        left: 0;
+        display: flex !important;
+        position: fixed;
+        top: 0;
+        right: -100%; /* දකුණු පැත්තෙන් එන්න හදලා තියෙන්නේ */
         width: 100%;
-        background: rgba(10, 10, 15, 0.95);
-        backdrop-filter: blur(10px);
-        padding: 20px 0;
-        border-bottom: 2px solid var(--primary-color);
-        z-index: 999;
+        height: 100vh;
+        background: rgba(5, 5, 15, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column !important;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1001;
+        padding: 0;
+        border: none;
     }
 
-    /* Menu එක open වුණාම (JS එකෙන්) පෙනෙන්න හැදීම */
     .nav-links-container.show-menu {
-        display: flex !important;
+        right: 0;
     }
 
     .nav-center {
         flex-direction: column !important;
-        width: 90% !important;
-        gap: 15px !important;
+        gap: 20px !important;
+        width: 85% !important;
+        margin-bottom: 40px;
     }
 
     .auth-buttons {
         flex-direction: column !important;
-        width: 90% !important;
-        margin-top: 15px !important;
+        width: 85% !important;
+        gap: 15px !important;
+        margin-top: 0 !important;
     }
 
-    .nav-card, .btn-auth {
+    /* Mobile Buttons & Cards */
+    .nav-card {
         width: 100% !important;
-        text-align: center !important;
-        padding: 12px !important;
+        padding: 15px !important;
+        font-size: 1.2rem !important;
+        text-align: center;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.05);
     }
 
-    /* --- CONTACT US Button එක පෙනෙන්න හැදීම --- */
+    .btn-auth {
+        width: 100% !important;
+        padding: 15px !important;
+        font-size: 1.1rem !important;
+        border-radius: 12px;
+    }
+
+    /* Home Page Slider Mobile Fixes */
     .slider-section {
-        height: auto !important;
-        min-height: 85vh !important; 
-        margin-top: 70px !important;
-        padding: 40px 0 60px 0 !important; /* Button එකට ඉඩ දෙනවා */
+        min-height: 100vh !important;
+        padding: 100px 20px 40px !important; 
     }
 
     .slide-content h2 {
-        font-size: 1.8rem !important;
-        line-height: 1.3 !important;
+        font-size: 2rem !important;
+        line-height: 1.4 !important;
+        margin-bottom: 15px;
     }
 
     .slide-content p {
-        font-size: 0.95rem !important;
+        font-size: 1.05rem !important;
+        line-height: 1.6;
+        text-align: center; /* ෆෝන් එකේ කියවන්න ලේසි වෙන්න */
+        padding: 0 10px;
     }
 
     .slide-btn {
-        display: inline-block !important; /* Button එක force කරලා පෙන්වනවා */
-        margin-top: 25px !important;
-        padding: 12px 25px !important;
-        font-size: 1rem !important;
-        z-index: 50 !important;
+        display: block !important;
+        width: 80%;
+        margin: 30px auto 0 !important;
+        text-align: center;
+        padding: 15px !important;
+        border-radius: 8px;
     }
-}
 
+    /* Softwares Page Mobile Fixes */
+    .hero {
+        padding-top: 100px;
+    }
 
-/* Main Heading එකට (We Develop... / Now Developing...) */
-.slide-content h2 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 3.5rem; /* අකුරු වල සයිස් එක (අවශ්‍ය නම් වෙනස් කරන්න) */
-    font-weight: 700;
-    color: #ffffff;
-    text-transform: uppercase; /* අකුරු ඔක්කොම කැපිටල් වෙන්න */
-    letter-spacing: 2px; /* අකුරු අතර පරතරය */
-    line-height: 1.2;
-    margin-bottom: 20px;
-}
+    .hero h1 {
+        font-size: 2.5rem;
+    }
 
-/* Highlight කරපු කෑල්ලට (Custom Softwares / Custom POS Systems) */
-.slide-content h2 .highlight {
-    font-weight: 900;
-    /* Professional Gradient එකක් (Cyan පාටට හුරු) */
-    background: linear-gradient(to right, #00f2fe 0%, #4facfe 100%); 
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0px 5px 15px rgba(0, 242, 254, 0.4); /* අකුරු වටේට පොඩි Glow එකක් */
-}
+    .bg-gradient-text {
+        font-size: 1.5rem;
+    }
 
-/* Description එකට (What is a POS System... කෑල්ලට) */
-.slide-content p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 300;
-    color: #d1d5db; /* ඇහැට අමාරු නැති ලා අළු පාටක් */
-    line-height: 1.8; /* පේළි අතර පරතරය */
-    max-width: 800px; /* ගොඩක් දිගට යන්නේ නැති වෙන්න */
-    margin: 0 auto 30px auto; /* මැදට ගන්න */
-}
+    .hero p {
+        font-size: 1.1rem;
+    }
 
-/* Nav bar එක hide වෙද්දි smooth එකට යන්න animation එකක් */
-.top-nav {
-    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
-}
+    .apps-container {
+        flex-direction: column !important;
+        align-items: center;
+        gap: 30px;
+        padding: 10px 20px;
+    }
 
-/* මේ class එක JS වලින් ඇඩ් කරාම nav bar එක හැංගෙනවා */
-.top-nav.hidden-nav {
-    transform: translateY(-100%); /* උඩටම ගිහින් හැංගෙනවා */
-    opacity: 0;
+    .app-card {
+        width: 100%;
+        max-width: 350px; /* ෆෝන් එකේ ලස්සනට පේන්න size කිරීම */
+    }
+
+    .section-title {
+        font-size: 2rem;
+        margin: 60px 0 30px;
+    }
+
+    /* Popup Mobile Fix */
+    .popup-content {
+        width: 85%;
+        padding: 25px 20px;
+    }
 }
 
 
